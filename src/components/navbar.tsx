@@ -91,7 +91,7 @@ export default async function Navbar() {
               />
             </NotSignedIn>
             <SignedIn>
-              <UploadButton uploadToken={user.uploadToken} />
+              {user.uploadToken && <UploadButton uploadToken={user.uploadToken} />}
               <ProfileButton />
             </SignedIn>
           </div>
