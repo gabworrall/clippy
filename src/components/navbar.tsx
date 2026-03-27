@@ -7,6 +7,8 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import SidebarToggle from "./dashboard/sidebar/sidebar-toggle";
 import ProfileButton from "./user/profile-button";
+import { getUser } from "@/lib/helpers/user";
+import UploadButton from "./user/upload-button";
 
 type Item = {
   name: string;
@@ -34,6 +36,7 @@ function NavButton({ name, icon, href, className }: Item) {
 }
 
 export default async function Navbar() {
+  const user = await getUser();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-[var(--header-height)] items-center justify-center">
@@ -88,6 +91,7 @@ export default async function Navbar() {
               />
             </NotSignedIn>
             <SignedIn>
+              <UploadButton uploadToken={user.uploadToken} />
               <ProfileButton />
             </SignedIn>
           </div>
