@@ -1,5 +1,5 @@
 "use client";
-import { getUploadToken } from "@/lib/helpers/user";
+import { generateUploadToken  } from "@/lib/helpers/user";
 import { Upload } from "lucide-react";
 import { useRef, useState } from "react";
 
